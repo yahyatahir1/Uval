@@ -48,35 +48,50 @@ tr:nth-child(even) {
 <body>
 
 
-<table>
-  <tr>
-    <th>U-Value caluclator </th>
-  </tr>
-  <tr>
-    <th>Material Name </th>
-    <th>Thickness               </th>
-    <th>    K-Value </th>
-    <th>Resistivity, K m2/W </th>
-  </tr>
-</table>
+
 
 {{#each model as |uval|}}
 <table>
   <tr>
-		<td> Outside Surface </td>
+    <th>U-Value Calculator</th>
+  </tr>
+  <tr>
+    <th>Material Name</th>
+    <th>Thickness</th>
+    <th>K-Value</th>
+    <th>Resistivity, K m2/W</th>
+  </tr>
+  <tr>
+    <td>Outside Surafce</td>
+    <td>-</td>
+    <td>-</td>
+    <td>{{uval.OutsideSurface}}</td>
+  </tr>
+  <tr>
+    <td>Inside Surface</td>
+    <td>-</td>
+    <td>-</td>
+    <td>{{uval.InsideSurface}}</td>
+  </tr>
+  <tr>
     <td>{{uval.MaterialName}}</td>
     <td>{{uval.Thickness}}</td>
     <td>{{uval.KValue}}</td>
-    <td> Inside Surface </td>
+    <td>{{uval.Resistivity}}</td>
   </tr>
+	<tr>
+	 <td>Total</td>
+	 <td>-</td>
+	 <td>-</td>
+	 <td>50</td>
+ </tr>
+ <tr>
+	 <td>U-Value =</td>
+	 <td>-</td>
+ </tr>
 </table>
 {{/each}}
 {{outlet}}
-
-<br>
-
-<button {{action 'calculate'}} class="btn btn-primary">Calculate Resistivity</button>
-
 
 </body>
 </html>
